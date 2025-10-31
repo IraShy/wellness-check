@@ -14,7 +14,9 @@ function AssessmentPage() {
     environmental: 0,
   });
 
-  const handleClick = (area: keyof AreaResults, score: number) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const area = event.target.name as keyof AreaResults;
+    const score = Number(event.target.value);
     setResults((prevResults) => ({
       ...prevResults,
       [area]: score,
@@ -48,16 +50,24 @@ function AssessmentPage() {
               </h2>
               {/* TODO: update the description */}
               <p>AreaDescription</p>
-              <section>
+              <section className="options-buttons">
                 {Array.from({ length: MAX_SCORE }, (_, i) => i + MIN_SCORE).map(
                   (i) => (
-                    <button
-                      type="button"
-                      key={i}
-                      onClick={() => handleClick(area, i)}
-                    >
-                      {i}
-                    </button>
+                    <span key={`${area}-${i}-option`}>
+                      <input
+                        type="radio"
+                        name={area}
+                        value={i}
+                        id={`${area}-${i}`}
+                        onChange={handleChange}
+                      />
+                      <label
+                        htmlFor={`${area}-${i}`}
+                        className={["background", `${area}`].join(" ")}
+                      >
+                        {i}
+                      </label>
+                    </span>
                   )
                 )}
               </section>
