@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { AreaResults } from "../types";
 import { WELLNESS_AREAS, MIN_SCORE, MAX_SCORE } from "../constants";
+import PageDescription from "../components/PageDescription";
 
 function AssessmentPage() {
   const [results, setResults] = useState<AreaResults>({
@@ -36,8 +37,7 @@ function AssessmentPage() {
         <p>PageHeader</p>
       </section>
       <section className="page-description">
-        {/* TODO: add the PageDescription component */}
-        <p>PageDescription</p>
+        <PageDescription />
       </section>
       <form onSubmit={handleSubmit}>
         <section className="area-cards">
