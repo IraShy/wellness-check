@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { AreaResults } from "../types";
 import { WELLNESS_AREAS, MIN_SCORE, MAX_SCORE } from "../constants";
 import PageDescription from "../components/PageDescription";
+import PageHeader from "../components/PageHeader";
 
 function AssessmentPage() {
   const [results, setResults] = useState<AreaResults>({
@@ -33,8 +34,7 @@ function AssessmentPage() {
   return (
     <>
       <section className="page-header">
-        {/* TODO: add the PageHeader component */}
-        <p>PageHeader</p>
+        <PageHeader />
       </section>
       <section className="page-description">
         <PageDescription />
