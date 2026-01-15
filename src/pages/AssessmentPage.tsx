@@ -1,8 +1,9 @@
 import { useState } from "react";
-import type { AreaResults } from "../types";
-import { WELLNESS_AREAS, MIN_SCORE, MAX_SCORE } from "../constants";
+import type { AreaResults, Score, WellnessArea } from "../types";
+import { WELLNESS_AREAS } from "../constants";
 import PageDescription from "../components/PageDescription";
 import PageHeader from "../components/PageHeader";
+import AssessmentCard from "../components/AssessmentCard";
 
 function AssessmentPage() {
   const [results, setResults] = useState<AreaResults>({
@@ -16,9 +17,7 @@ function AssessmentPage() {
     environmental: 0,
   });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const area = event.target.name as keyof AreaResults;
-    const score = Number(event.target.value);
+  const handleChange = (area: WellnessArea, score: Score) => {
     setResults((prevResults) => ({
       ...prevResults,
       [area]: score,
@@ -41,37 +40,13 @@ function AssessmentPage() {
       </section>
       <form onSubmit={handleSubmit}>
         <section className="area-cards">
-          <p>AreaCards</p>
-          {/* TODO: abstract into a separate AssessmentCard component */}
           {WELLNESS_AREAS.map((area) => (
-            <article className="assessment-card" key={area + "-card"}>
-              <h2 key={area}>
-                {area} wellness: {results[area]}
-              </h2>
-              {/* TODO: update the description */}
-              <p>AreaDescription</p>
-              <section className="options-buttons">
-                {Array.from({ length: MAX_SCORE }, (_, i) => i + MIN_SCORE).map(
-                  (i) => (
-                    <span key={`${area}-${i}-option`}>
-                      <input
-                        type="radio"
-                        name={area}
-                        value={i}
-                        id={`${area}-${i}`}
-                        onChange={handleChange}
-                      />
-                      <label
-                        htmlFor={`${area}-${i}`}
-                        className={["background", `${area}`].join(" ")}
-                      >
-                        {i}
-                      </label>
-                    </span>
-                  )
-                )}
-              </section>
-            </article>
+            <AssessmentCard
+              key={area}
+              area={area}
+              currentScore={results[area]}
+              onSelectScore={handleChange}
+            />
           ))}
         </section>
         <button type="submit">Submit</button>
