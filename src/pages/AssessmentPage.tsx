@@ -5,7 +5,11 @@ import PageDescription from "../components/PageDescription";
 import PageHeader from "../components/PageHeader";
 import AssessmentCard from "../components/AssessmentCard";
 
-function AssessmentPage() {
+function AssessmentPage({
+  onSubmit,
+}: {
+  onSubmit: (results: AreaResults) => void;
+}) {
   const [results, setResults] = useState<AreaResults>({
     financial: 0,
     emotional: 0,
@@ -24,10 +28,9 @@ function AssessmentPage() {
     }));
   };
 
-  // TODO: update the submit handler
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("Submitted results:", results);
+    onSubmit(results);
   };
 
   return (
