@@ -6,16 +6,34 @@ body {
   line-height: 1.5;
 }
 
+.area-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 64px;
+}
+
+.assessment-card {
+  max-width: 400px;
+  border: 1px red solid; /* TO DO */
+  padding: 10px; /* TO DO */
+}
+
 /* Screen responsive styles */
 
 @media screen and (max-width: 600px) {
   body {
     font-size: 1rem;
   }
+  .area-cards {
+    gap: 32px;
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 768px) {
   body {
     font-size: 1.15rem;
+  }
+  .area-cards {
+    gap: 40px;
   }
 }
