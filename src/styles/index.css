@@ -1,0 +1,80 @@
+/* Page styles */
+
+body {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin: 3rem;
+}
+
+.area-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 64px;
+}
+
+.assessment-card {
+  max-width: 400px;
+  border: 1px red solid; /* TO DO */
+  padding: 10px; /* TO DO */
+}
+
+.page-header {
+  margin-top: 4rem;
+}
+
+.page-description {
+  margin-bottom: 4rem;
+}
+
+button {
+  margin-top: 4rem;
+}
+
+/* Screen responsive styles */
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 1rem;
+    margin: 1rem;
+  }
+
+  .area-cards {
+    gap: 32px;
+  }
+
+  .page-header {
+    margin-top: 2rem;
+  }
+
+  .page-description {
+    margin-bottom: 2rem;
+  }
+
+  button {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  body {
+    font-size: 1.15rem;
+    margin: 2rem;
+  }
+
+  .area-cards {
+    gap: 40px;
+  }
+
+  .page-header {
+    margin-top: 3rem;
+  }
+
+  .page-description {
+    margin-bottom: 3rem;
+  }
+
+  button {
+    margin-top: 3rem;
+  }
+}

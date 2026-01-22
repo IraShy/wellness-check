@@ -1,7 +1,7 @@
 function PageHeader() {
   return (
     <>
-      <p>PageHeader</p>
+      <h2>PageHeader</h2>
     </>
   );
 }

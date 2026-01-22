@@ -9,7 +9,7 @@ function AssessmentCard({
   return (
     <>
       <article className="assessment-card" key={area + "-card"}>
-        <h2>{area} wellness</h2>
+        <h3>{area} wellness</h3>
         <p>{AREA_DESCRIPTIONS[area]}</p>
         <section className="options-buttons">
           {Array.from({ length: MAX_SCORE }, (_, i) => i + MIN_SCORE).map(
