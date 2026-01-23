@@ -1,16 +1,11 @@
 import type { AreaResults } from "../types";
+import BarChart from "../components/BarChart";
 
 function ResultsPage({ results }: { results: AreaResults }) {
   return (
     <>
-      <h1>Results page</h1>
-      <ul>
-        {Object.entries(results).map(([area, score]) => (
-          <li key={area}>
-            {area}: {score}
-          </li>
-        ))}
-      </ul>
+      <h1>Your results</h1>
+      <BarChart results={results} />
     </>
   );
 }
